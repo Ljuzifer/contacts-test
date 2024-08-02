@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg?url'
+// import reactLogo from './assets/react.svg?url'
 import RLogo from './assets/react.svg'
 import Logo from './assets/vite.svg'
-import viteLogo from '/vite.svg?url'
+// import viteLogo from '/vite.svg?url'
 import './App.css'
 
 function App() {
@@ -11,13 +11,15 @@ function App() {
   return (
     <>
       <div style={{display: "flex", justifyContent:"space-between"}}>
-        <RLogo width={88} height={88} className="react" />
-        <Logo width={88} height={88} />
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+        
+        
+        <a href="https://vitejs.dev" target="_blank" className='logo'>
+          {/* <img src={viteLogo} className="logo" alt="Vite logo" /> */}
+          <Logo width={88} height={88} />
         </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a href="https://react.dev" target="_blank" className='logo react'>
+          {/* <img src={reactLogo} className="logo react" alt="React logo" /> */}
+          <RLogo width={88} height={88} className="react" />
         </a>
       </div>
       <h1>Vite + React</h1>

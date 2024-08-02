@@ -1,14 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
-        "./index.html",
+        "./public/index.html",
         "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
         screens: {
-            sm: "480px",
+            sm: "400px",
             smOnly: { max: "767.98px" },
             md: "768px",
             mdOnly: { min: "768px", max: "1279.98px" },
