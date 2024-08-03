@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const BASE_URL = import.meta.env.VITE_BASE_API_PREFIX;
-// const BASE_URL = '/api/v1';
+const BASE_URL =
+  import.meta.env.MODE === 'development'
+    ? import.meta.env.VITE_BASE_API_PREFIX
+    : import.meta.env.VITE_BASE_FULL_API;
 const BASE_TOKEN = import.meta.env.VITE_BASE_API_TOKEN;
-// const BASE_TOKEN = 'VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn';
 
 export const contactsApi = createApi({
   reducerPath: 'contactsApi',
