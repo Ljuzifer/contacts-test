@@ -34,6 +34,16 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
         rewrite: path => path.replace(/^\/api\/v1/, '/api/v1'),
+        configure: proxy => {
+          // Add necessary headers
+          proxy.on('proxyReq', proxyReq => {
+            // Set the Origin header to the URL of your deployed application
+            proxyReq.setHeader(
+              'Origin',
+              'https://ljuzifer.github.io/contacts-test',
+            );
+          });
+        },
       },
     },
   },
