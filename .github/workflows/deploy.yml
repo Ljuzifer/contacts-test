@@ -4,9 +4,9 @@ on:
   push:
     branches: [main]
 
-env:
-  VITE_BASE_API_PREFIX: ${{ secrets.VITE_BASE_API_PREFIX }}
-  VITE_BASE_API_TOKEN: ${{ secrets.VITE_BASE_API_TOKEN }}
+# env:
+#   VITE_BASE_API_PREFIX: ${{ secrets.VITE_BASE_API_PREFIX }}
+#   VITE_BASE_API_TOKEN: ${{ secrets.VITE_BASE_API_TOKEN }}
 
 jobs:
   build-and-deploy:
@@ -20,7 +20,9 @@ jobs:
           npm install
           npm run lint
           npm run build
-          # cp ./dist/index.html
+        env:
+          VITE_BASE_API_PREFIX: ${{ secrets.VITE_BASE_API_PREFIX }}
+          VITE_BASE_API_TOKEN: ${{ secrets.VITE_BASE_API_TOKEN }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
