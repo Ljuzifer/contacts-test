@@ -1,17 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
-// import process from 'process';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
 
 const BASE_API = process.env.VITE_BASE_API;
-// const BASE_API = import.meta.env.VITE_BASE_API;
-// console.log(BASE_API);
-
-// const BASE_API = 'https://live.devnimble.com';
-// const BASE_PREFIX = process.env.VITE_BASE_API_PREFIX;
 
 export default defineConfig({
   base: '/contacts-test/',

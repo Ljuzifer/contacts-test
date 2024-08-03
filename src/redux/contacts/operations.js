@@ -5,6 +5,7 @@ const BASE_URL =
     ? import.meta.env.VITE_BASE_API_PREFIX
     : import.meta.env.VITE_BASE_FULL_API;
 const BASE_TOKEN = import.meta.env.VITE_BASE_API_TOKEN;
+console.log(import.meta.env);
 
 export const contactsApi = createApi({
   reducerPath: 'contactsApi',

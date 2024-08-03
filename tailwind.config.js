@@ -19,10 +19,10 @@ export default {
       container: {
         center: true,
         padding: {
-          DEFAULT: '1rem',
-          sm: '1rem',
-          md: '42px',
-          xl: '2rem',
+          DEFAULT: '18px',
+          sm: '18px',
+          md: '40px',
+          xl: '32px',
         },
       },
     },

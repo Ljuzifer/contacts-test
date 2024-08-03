@@ -1,7 +1,9 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import LoadingSpinnerComponent from 'react-spinners-components';
+
 import AppBar from './components/AppBar';
+
+import LoadingSpinnerComponent from 'react-spinners-components';
 
 export default function Layout() {
   return (
