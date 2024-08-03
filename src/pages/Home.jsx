@@ -1,18 +1,18 @@
+import Spinner from '../components/Spinner';
 import { useGetAllContactsQuery } from '../redux/contacts/operations';
 
 export default function Home() {
   const { data, error, isLoading } = useGetAllContactsQuery();
   const x = data ? data.resources : [];
-  console.log(x);
 
   return (
     <>
       <div className='container'>
         <ul>
           {error ? (
-            <>Oh no, there was an error</>
+            <>{error.message}</>
           ) : isLoading ? (
-            <>Loading...</>
+            <Spinner />
           ) : x.length > 0 ? (
             x.map(i => {
               const emailField = i.fields.email;
