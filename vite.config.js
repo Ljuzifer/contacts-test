@@ -1,8 +1,16 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
+// import process from 'process';
+import * as dotenv from 'dotenv';
 
-// const BASE_API = process.env.VITE_BASE_API;
+dotenv.config();
+
+const BASE_API = process.env.VITE_BASE_API;
+// const BASE_API = import.meta.env.VITE_BASE_API;
+// console.log(BASE_API);
+
+// const BASE_API = 'https://live.devnimble.com';
 // const BASE_PREFIX = process.env.VITE_BASE_API_PREFIX;
 
 export default defineConfig({
@@ -22,7 +30,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api/v1': {
-        target: 'https://live.devnimble.com',
+        target: BASE_API,
         changeOrigin: true,
         secure: false,
         rewrite: path => path.replace(/^\/api\/v1/, '/api/v1'),
