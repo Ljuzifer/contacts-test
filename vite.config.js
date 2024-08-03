@@ -6,6 +6,7 @@ import svgr from 'vite-plugin-svgr';
 // const BASE_PREFIX = process.env.VITE_BASE_API_PREFIX;
 
 export default defineConfig({
+  base: '/contacts-test/',
   plugins: [
     react(),
     svgr({

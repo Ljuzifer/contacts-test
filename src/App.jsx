@@ -11,7 +11,7 @@ export default function App() {
     <>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route />
+          <Route index />
         </Route>
       </Routes>
       <div className='container'>
