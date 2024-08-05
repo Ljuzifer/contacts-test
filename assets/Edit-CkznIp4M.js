@@ -1,1 +1,0 @@
-import{b as s,r as a,j as t,L as c}from"./index-0J1tIT6i.js";function i(){var n;const o=s(),e=a.useRef(((n=o.state)==null?void 0:n.from)??"/");return console.log(o),console.log(e),t.jsxs(t.Fragment,{children:[t.jsx("h1",{children:"edit contact"}),t.jsx(c,{to:e.current.pathname,children:"GO BACK"})]})}export{i as default};
