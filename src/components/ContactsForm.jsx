@@ -14,58 +14,79 @@ export default function ContactsForm() {
   const initialState = { firstName: '', lastName: '', email: '' };
 
   return (
-    <Formik
-      initialValues={initialState}
-      validationSchema={formSchema}
-      onSubmit={async (values, actions) => {
-        const data = {
-          record_type: 'person',
-          fields: {
-            ...(values.firstName && {
-              'first name': [{ value: values.firstName }],
-            }),
-            ...(values.lastName && {
-              'last name': [{ value: values.lastName }],
-            }),
-            email: [{ value: values.email }],
-          },
-        };
+    <section>
+      <div className='container'>
+        <Formik
+          initialValues={initialState}
+          validationSchema={formSchema}
+          onSubmit={async (values, actions) => {
+            const data = {
+              record_type: 'person',
+              fields: {
+                ...(values.firstName && {
+                  'first name': [{ value: values.firstName }],
+                }),
+                ...(values.lastName && {
+                  'last name': [{ value: values.lastName }],
+                }),
+                email: [{ value: values.email }],
+              },
+            };
 
-        try {
-          await createContact({ ...data }).unwrap();
-          actions.resetForm();
+            try {
+              await createContact({ ...data }).unwrap();
+              actions.resetForm();
 
-          toast.success('New contact is added successfull!');
-          refetch();
-        } catch (error) {
-          console.error(error.data.human_readable_error);
-          toast.error(
-            `Oops...! Failed to create contact: ${error.data.human_readable_error}`,
-          );
-        } finally {
-          actions.setSubmitting(false);
-        }
-      }}
-    >
-      <Form className='mx-auto flex max-w-80 flex-col gap-5'>
-        <label className='flex flex-col'>
-          First Name
-          <Field type='text' name='firstName' />
-          <ErrorMessage name='firstName' component='b' />
-        </label>
-        <label className='flex flex-col'>
-          Last Name
-          <Field type='text' name='lastName' />
-          <ErrorMessage name='lastName' component='b' />
-        </label>
-        <label className='flex flex-col'>
-          Email
-          <Field type='email' name='email' />
-          <ErrorMessage name='email' component={'b'} />
-        </label>
+              toast.success('New contact is added successfull!');
+              refetch();
+            } catch (error) {
+              console.error(error.data.human_readable_error);
+              toast.error(
+                `Oops...! Failed to create contact: ${error.data.human_readable_error}`,
+              );
+            } finally {
+              actions.setSubmitting(false);
+            }
+          }}
+        >
+          <Form>
+            <label htmlFor='firstName'>
+              First Name
+              <Field
+                id='firstName'
+                type='text'
+                name='firstName'
+                placeholder='Enter contact`s first name'
+              />
+              <ErrorMessage name='firstName' component='strong' />
+            </label>
+            <label htmlFor='lastName'>
+              Last Name
+              <Field
+                id='lastName'
+                type='text'
+                name='lastName'
+                placeholder='Enter contact`s last name'
+              />
+              <ErrorMessage name='lastName' component='strong' />
+            </label>
+            <label htmlFor='email' className='mb-4'>
+              Email
+              <Field
+                id='email'
+                type='email'
+                name='email'
+                placeholder='Enter contact`s email'
+              />
+              <ErrorMessage name='email' component='strong' />
+            </label>
 
-        <button type='submit'>Add contact</button>
-      </Form>
-    </Formik>
+            <button type='submit' className='button'>
+              Add contact
+            </button>
+          </Form>
+        </Formik>
+      </div>
+    </section>
   );
 }

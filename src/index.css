@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: Poppins, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* line-height: 1.5; */
   font-weight: 500;
 
   color-scheme: light dark;
@@ -22,29 +22,42 @@ footer {
   text-align: center;
 }
 
-/* button {
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
-} */
-/* button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+@layer base {
+  body {
+    @apply h-full min-h-screen font-normal;
+  }
+
+  form {
+    @apply mx-auto mb-5 flex flex-col gap-4 rounded-lg border-[4px] border-solid border-[#3b3c3d] p-3;
+  }
+
+  input {
+    @apply rounded px-2 py-1;
+  }
+
+  label {
+    @apply relative flex flex-col;
+  }
+
+  strong {
+    @apply absolute bottom-[-20px] left-0 text-sm font-medium text-red-800;
+  }
+
+  ::placeholder {
+    @apply p-1 text-sm text-zinc-200;
+  }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #1d1d1d;
-    background-color: #ffffff;
+@layer utilities {
+  .transition {
+    @apply transition-all duration-300 ease-in-out;
   }
-  a:hover {
-    color: #747bff;
+
+  .title {
+    @apply mb-4 text-center text-lg font-semibold uppercase;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .button {
+    @apply mx-auto block w-44 rounded-lg border-[2px] border-solid border-[#3b3c3d] p-1 text-center transition hover:bg-[#3b3c3d] focus:bg-[#3b3c3d];
   }
-} */
+}

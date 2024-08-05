@@ -13,9 +13,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path='/:contactId' element={<EditPage />}>
-            <Route path='tags' />
-          </Route>
+          <Route path='/:contactId' element={<EditPage />} />
         </Route>
       </Routes>
 

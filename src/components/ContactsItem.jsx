@@ -1,12 +1,15 @@
 import { Link, useLocation } from 'react-router-dom';
 
+import Tags from './Tags';
+import ButtonDel from './ButtonDel';
+
 import {
   useDeleteContactMutation,
   useGetAllContactsQuery,
 } from '../redux/contacts/operations';
-
-import Close from '../assets/close.svg';
 import toast from 'react-hot-toast';
+
+// import Close from '../assets/close.svg';
 
 export default function ContactsItem({ item }) {
   const [deleteContact] = useDeleteContactMutation();
@@ -24,34 +27,22 @@ export default function ContactsItem({ item }) {
   const name = firstName[0]?.value ?? '';
   const surname = lastName[0]?.value ?? '';
 
-  // const handleClick = event => {
-  //   if (event.target.closest('button')) {
-  //     event.preventDefault();
-  //   }
-  // };
-
-  const handleDelete = async (e, contactId) => {
-    // e.stopPropagation();
-    // e.preventDefault();
+  const handleDelete = async contactId => {
     try {
       await deleteContact(contactId);
-
       refetch();
+      toast.success('Contact deleted successfull!');
     } catch (error) {
       console.error(error);
-    } finally {
-      toast.success('Contact deleted successfull!');
+      toast.error(
+        `Oops...! Something wrong... Error: ${error.data.human_readable_error}`,
+      );
     }
   };
 
   return (
     <div className='group flex'>
-      <Link
-        to={`/${id}`}
-        state={{ from: location }}
-        // onClick={() => handleClick()}
-        className='w-full'
-      >
+      <Link to={`/${id}`} state={{ from: location }} className='w-full'>
         <div className='flex rounded-lg rounded-tr-none bg-[#3b3c3d] p-4 group-hover:bg-[#1d1d1d]'>
           <div className='mr-4 block h-[68px] w-[68px] overflow-hidden rounded-full'>
             <img
@@ -74,25 +65,11 @@ export default function ContactsItem({ item }) {
 
             {mail ? <b>{mail}</b> : <b>No email</b>}
 
-            {tags.length > 0 && (
-              <ul className='flex flex-wrap gap-2'>
-                {tags.map(tag => (
-                  <li key={tag.id}>{tag.tag}</li>
-                ))}
-              </ul>
-            )}
+            <Tags id={id} tags={tags} />
           </div>
         </div>
       </Link>
-      <div className='h-11 w-11 rounded-r-lg bg-[#3b3c3d] p-0.5 hover:text-orange-700 focus:text-orange-700 group-hover:bg-[#1d1d1d]'>
-        <button
-          type='button'
-          onClick={e => handleDelete(e, id)}
-          // className='right-[2px] top-2 z-10 ml-auto flex items-start'
-        >
-          <Close width={40} height={40} fill='currentColor' />
-        </button>
-      </div>
+      <ButtonDel id={id} onClick={handleDelete} />
     </div>
   );
 }
