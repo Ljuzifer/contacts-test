@@ -8,7 +8,7 @@ dotenv.config();
 const BASE_API = process.env.VITE_BASE_API;
 
 export default defineConfig({
-  base: '/contacts-test/',
+  base: '/contacts-test',
   plugins: [
     react(),
     svgr({
