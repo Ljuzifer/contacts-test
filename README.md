@@ -1,4 +1,8 @@
-# React + Vite
+#Contact's Book [Nimble]
+--
+To temporarily unlock access to the demo, click on the button at following link: [CORS Anywhere](https://cors-anywhere.herokuapp.com/corsdemo)
+
+##React + Vite + TailwindCSS
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
