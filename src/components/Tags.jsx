@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
 import ButtonDel from './ButtonDel';
-import TagsForm from './TagsForm';
+// import TagsForm from './TagsForm';
 
 import {
   useGetContactByIdQuery,
@@ -21,6 +21,7 @@ export default function Tags({ id = '', tags = [] }) {
       const restTags = [];
       tags.map(t => t.id !== tagId && restTags.push(t.tag));
       const data = { contactId: id, tags: [...restTags] };
+
       try {
         await deleteTag(data).unwrap();
         refetch();
@@ -41,7 +42,7 @@ export default function Tags({ id = '', tags = [] }) {
           {tags.map((tag, index) => (
             <li
               key={tag?.id || index}
-              className='flex items-center justify-center rounded-[4px] bg-stone-900 px-1.5 py-1 text-sm font-light tracking-tight'
+              className='tags flex items-center justify-center rounded-[4px] bg-stone-900 px-1.5 py-1 text-sm font-light tracking-tight'
             >
               {tag.tag}
               {!path && <ButtonDel id={tag.id} onClick={onDeleteTag} />}
@@ -49,7 +50,7 @@ export default function Tags({ id = '', tags = [] }) {
           ))}
         </ul>
       )}
-      {!path && <TagsForm id={id} current={tags} />}
+      {/* {!path && <TagsForm id={id} current={tags} />} */}
     </>
   );
 }

@@ -9,8 +9,6 @@ import {
 } from '../redux/contacts/operations';
 import toast from 'react-hot-toast';
 
-// import Close from '../assets/close.svg';
-
 export default function ContactsItem({ item }) {
   const [deleteContact] = useDeleteContactMutation();
   const { refetch } = useGetAllContactsQuery();
@@ -44,7 +42,7 @@ export default function ContactsItem({ item }) {
     <div className='group flex'>
       <Link to={`/${id}`} state={{ from: location }} className='w-full'>
         <div className='flex rounded-lg rounded-tr-none bg-[#3b3c3d] p-4 group-hover:bg-[#1d1d1d]'>
-          <div className='mr-4 block h-[68px] w-[68px] overflow-hidden rounded-full'>
+          <div className='mr-4 block h-[68px] min-w-[68px] overflow-hidden rounded-full'>
             <img
               src={avatar_url}
               alt='Contact`s avatar'
@@ -53,11 +51,11 @@ export default function ContactsItem({ item }) {
               content='object-cover'
             />
           </div>
-          <div className='flex max-w-52 flex-col gap-5'>
+          <div className='flex flex-col gap-5'>
             {name === '' && surname === '' ? (
               <p>No any name</p>
             ) : (
-              <div className='flex gap-2'>
+              <div className='flex flex-wrap gap-2 whitespace-pre-wrap'>
                 <p>{name}</p>
                 <p>{surname}</p>
               </div>
