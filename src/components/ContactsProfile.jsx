@@ -34,7 +34,6 @@ export default function ContactsProfile({ profile }) {
         {mail ? (
           <a
             href={`mailto:${mail}`}
-            target='_blank'
             rel='noopener noreferrer nofollow'
             aria-label='Link to contact`s email'
           >

@@ -10,11 +10,11 @@ export default function Layout() {
     <div className='flex min-h-screen flex-col'>
       <AppBar />
 
-      <Suspense fallback={<Spinner />}>
-        <main className='flex-grow'>
+      <main className='flex-grow'>
+        <Suspense fallback={<Spinner />}>
           <Outlet />
-        </main>
-      </Suspense>
+        </Suspense>
+      </main>
 
       <FooBar />
     </div>

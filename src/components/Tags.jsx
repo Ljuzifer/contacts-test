@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
 import ButtonDel from './ButtonDel';
-// import TagsForm from './TagsForm';
 
 import {
   useGetContactByIdQuery,
