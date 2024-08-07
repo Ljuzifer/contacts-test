@@ -18,24 +18,22 @@ export default function ContactsList() {
   }, []);
 
   return (
-    <section className='mb-5'>
-      <div className='container'>
-        <ul className='flex flex-col gap-5'>
-          {error ? (
-            <>{error.message}</>
-          ) : isLoading ? (
-            <Spinner />
-          ) : list.length > 0 ? (
-            list.map(item => (
-              <li key={item.id}>
-                <ContactsItem item={item} />
-              </li>
-            ))
-          ) : (
-            <>No contacts found</>
-          )}
-        </ul>
-      </div>
-    </section>
+    <div className='notXl:container xl:w-full'>
+      <ul className='flex flex-col gap-5'>
+        {error ? (
+          <>{error.message}</>
+        ) : isLoading ? (
+          <Spinner />
+        ) : list.length > 0 ? (
+          list.map(item => (
+            <li key={item.id}>
+              <ContactsItem item={item} />
+            </li>
+          ))
+        ) : (
+          <>No contacts found</>
+        )}
+      </ul>
+    </div>
   );
 }

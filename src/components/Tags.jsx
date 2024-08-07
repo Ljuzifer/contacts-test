@@ -50,7 +50,6 @@ export default function Tags({ id = '', tags = [] }) {
           ))}
         </ul>
       )}
-      {/* {!path && <TagsForm id={id} current={tags} />} */}
     </>
   );
 }

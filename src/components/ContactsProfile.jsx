@@ -11,18 +11,17 @@ export default function ContactsProfile({ profile }) {
   const surname = lastName[0]?.value ?? '';
 
   return (
-    <div className='mb-4 flex rounded-lg bg-[#3b3c3d] p-4'>
-      {/* <div className='flex'> */}
-      <div className='mr-5 block h-[88px] min-w-[88px] overflow-hidden rounded-full'>
+    <div className='mb-4 flex rounded-lg bg-[#3b3c3d] p-4 xl:mx-auto xl:w-[880px]'>
+      <div className='mr-5 block h-[122px] min-w-[122px] overflow-hidden rounded-full'>
         <img
           src={avatar_url}
           alt='Contact`s avatar'
-          width={88}
-          height={88}
-          className='h-[88px] w-[88px] object-cover'
+          width={122}
+          height={122}
+          className='h-[122px] w-[122px] object-cover'
         />
       </div>
-      <div className='flex flex-col gap-5'>
+      <div className='flex flex-col gap-5 tracking-wider xl:text-lg xl:font-semibold'>
         {name === '' && surname === '' ? (
           <p>No any name</p>
         ) : (

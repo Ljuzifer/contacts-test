@@ -8,10 +8,10 @@ import {
 
 import { avatarSchema } from '../schema/avatarSchema';
 
-export default function AvatarForm({ current }) {
-  const { id, fields } = current;
+export default function AvatarForm({ profile }) {
+  const { id, fields } = profile;
   const [updateAvatar] = useUpdateAvatarMutation();
-  const { refetch } = useGetContactByIdQuery(current.id);
+  const { refetch } = useGetContactByIdQuery(profile.id);
 
   const initialState = { avatar: '' };
 

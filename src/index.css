@@ -40,15 +40,19 @@ footer {
   }
 
   label {
-    @apply relative flex flex-col;
+    @apply relative flex flex-col text-sm md:text-base;
   }
 
   strong {
-    @apply absolute bottom-[-20px] left-0 text-sm font-medium text-red-800;
+    @apply absolute bottom-[-16px] left-0 text-xs font-medium text-red-800 md:bottom-[-20px] md:text-sm;
   }
 
   b {
-    @apply whitespace-pre-wrap break-all text-lg font-medium tracking-tight text-stone-400 hover:text-orange-800 focus:text-orange-800;
+    @apply whitespace-pre-wrap break-all text-xs font-medium tracking-tight text-stone-400 md:text-sm xl:text-lg;
+  }
+
+  a > b {
+    @apply hover:text-orange-800 focus:text-orange-800;
   }
 
   ::placeholder {
@@ -62,11 +66,11 @@ footer {
   }
 
   .title {
-    @apply mb-4 text-center text-lg font-semibold uppercase;
+    @apply mb-4 text-center text-lg font-semibold uppercase tracking-wide md:mb-5 md:text-xl md:font-bold xl:text-2xl;
   }
 
   .subtitle {
-    @apply mb-2 text-left text-base font-medium uppercase;
+    @apply mb-2 text-center text-base font-medium uppercase;
   }
 
   .button {

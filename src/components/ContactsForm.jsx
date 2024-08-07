@@ -14,8 +14,8 @@ export default function ContactsForm() {
   const initialState = { firstName: '', lastName: '', email: '' };
 
   return (
-    <section>
-      <div className='container'>
+    <div className='notXl:container xl:sticky xl:top-5 xl:h-fit'>
+      <div className='mdOnly:w-[440px] xl:w-[400px] notXl:mx-auto'>
         <Formik
           initialValues={initialState}
           validationSchema={formSchema}
@@ -87,6 +87,6 @@ export default function ContactsForm() {
           </Form>
         </Formik>
       </div>
-    </section>
+    </div>
   );
 }
