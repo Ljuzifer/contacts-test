@@ -47,6 +47,10 @@ footer {
     @apply absolute bottom-[-20px] left-0 text-sm font-medium text-red-800;
   }
 
+  b {
+    @apply whitespace-pre-wrap break-all text-lg font-medium tracking-tight text-stone-400 hover:text-orange-800 focus:text-orange-800;
+  }
+
   ::placeholder {
     @apply p-1 text-sm text-zinc-200;
   }

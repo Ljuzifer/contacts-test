@@ -11,7 +11,7 @@ export default function ContactsProfile({ profile }) {
   const surname = lastName[0]?.value ?? '';
 
   return (
-    <div className='mb-4 flex rounded-lg bg-[#3b3c3d] p-4 hover:bg-[#1d1d1d]'>
+    <div className='mb-4 flex rounded-lg bg-[#3b3c3d] p-4'>
       {/* <div className='flex'> */}
       <div className='mr-5 block h-[88px] min-w-[88px] overflow-hidden rounded-full'>
         <img
@@ -19,7 +19,7 @@ export default function ContactsProfile({ profile }) {
           alt='Contact`s avatar'
           width={88}
           height={88}
-          content='object-cover'
+          className='h-[88px] w-[88px] object-cover'
         />
       </div>
       <div className='flex flex-col gap-5'>
@@ -32,7 +32,18 @@ export default function ContactsProfile({ profile }) {
           </div>
         )}
 
-        {mail ? <b>{mail}</b> : <b>No email</b>}
+        {mail ? (
+          <a
+            href={`mailto:${mail}`}
+            target='_blank'
+            rel='noopener noreferrer nofollow'
+            aria-label='Link to contact`s email'
+          >
+            <b>{mail}</b>
+          </a>
+        ) : (
+          <b>No email</b>
+        )}
       </div>
     </div>
   );

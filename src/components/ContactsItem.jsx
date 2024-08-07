@@ -48,7 +48,7 @@ export default function ContactsItem({ item }) {
               alt='Contact`s avatar'
               width={68}
               height={68}
-              content='object-cover'
+              className='h-[68px] w-[68px] object-cover'
             />
           </div>
           <div className='flex flex-col gap-5'>

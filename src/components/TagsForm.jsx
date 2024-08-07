@@ -1,9 +1,10 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import toast from 'react-hot-toast';
+
 import {
   useGetContactByIdQuery,
   useUpdateTagsMutation,
 } from '../redux/contacts/operations';
-import toast from 'react-hot-toast';
 
 export default function TagsForm({ id, current }) {
   const [updateTags] = useUpdateTagsMutation();
@@ -20,7 +21,7 @@ export default function TagsForm({ id, current }) {
     <Formik
       initialValues={initialState}
       onSubmit={async (values, actions) => {
-        const entered = values.tags.split(/[- ,.:;"'`]+/).filter(Boolean);
+        const entered = values.tags.split(/[ ,.:;"'`]+/).filter(Boolean);
         const data = { contactId: id, tags: [...currentTags, ...entered] };
 
         try {
